@@ -1,0 +1,78 @@
+<div>
+  <div
+    class="hidden md:flex fixed w-screen flex-row gap-8 justify-center bg-gray-700 text-[#00df9a] mb-2 mt-2"
+  >
+    <a
+      [routerLink]="['']"
+      class="text-2xl hover:shadow-lg hover:shadow-[#000300] border-t-4 border-gray-700 hover:border-t-blue-700 hover:opacity-80 pb-4"
+      >Home</a
+    >
+    <a
+      [routerLink]="['/education']"
+      class="text-2xl hover:shadow-lg hover:shadow-[#000300] border-t-4 border-gray-700 hover:border-t-blue-700 hover:opacity-80 pb-4"
+      >Eductaion</a
+    >
+    <a
+      [routerLink]="['/skills']"
+      class="text-2xl hover:shadow-lg hover:shadow-[#000300] border-t-4 border-gray-700 hover:border-t-blue-700 hover:opacity-80 pb-4"
+      >Skills</a
+    >
+    <a
+      [routerLink]="['/projects']"
+      class="text-2xl hover:shadow-lg hover:shadow-[#000300] border-t-4 border-gray-700 hover:border-t-blue-700 hover:opacity-80 pb-4"
+      >Projects</a
+    >
+    <a
+      [routerLink]="['/contact']"
+      class="text-2xl hover:shadow-lg hover:shadow-[#000300] border-t-4 border-gray-700 hover:border-t-blue-700 hover:opacity-80 pb-4"
+      >Contact</a
+    >
+  </div>
+  <div class="md:hidden bg-gray-700">
+    <button
+      class="text-green-500 text-2xl p-2 pl-4 -left-0 top-2 mx-auto"
+      (click)="onClick()"
+    >
+      &#9776;
+    </button>
+    <div class="bg-gray-500 w-1/2">
+      <ul [class]="getColors()">
+        <li>
+          <a
+            [routerLink]="['']"
+            class="text-lg hover:shadow-lg hover:shadow-[#000300] p-4 hover:opacity-80"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            [routerLink]="['/education']"
+            class="text-lg hover:shadow-lg hover:shadow-[#000300] p-4 hover:opacity-80"
+            >Eductaion</a
+          >
+        </li>
+        <li>
+          <a
+            [routerLink]="['/skills']"
+            class="text-lg hover:shadow-lg hover:shadow-[#000300] p-4 hover:opacity-80"
+            >Skills</a
+          >
+        </li>
+        <li>
+          <a
+            [routerLink]="['/projects']"
+            class="text-lg hover:shadow-lg hover:shadow-[#000300] p-4 hover:opacity-80"
+            >Projects</a
+          >
+        </li>
+        <li>
+          <a
+            [routerLink]="['/contact']"
+            class="text-lg hover:shadow-lg hover:shadow-[#000300] p-4 hover:opacity-80"
+            >Contact</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

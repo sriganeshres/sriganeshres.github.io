@@ -9,8 +9,8 @@ on:
       - master
 
 jobs:
-  build-and-deploy:
-    name: Build and Deploy
+  build:
+    name: Build
     runs-on: ubuntu-latest
 
     steps:
@@ -20,26 +20,38 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '20'
+          node-version: '20.x'
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Install Angular CLI and dependencies
+        run: |
+          npm install -g @angular/cli
+          npm ci
 
       - name: Build Angular app
-        run: npm run build --configuration=production
-      - name: Configure Git
-        run: |
-          git config --global user.email "sriganeshthota12345@gmail.com"
-          git config --global user.name "sriganeshres"
-      - name: Deploy to GitHub Pages
+        run: ng build --configuration=production
         env:
-          CI: true
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # Install GitHub Pages deployer
-          npm install -g angular-cli-ghpages
-          
-          # Deploy to GitHub Pages with detailed logging
-          npx ngh --dir=dist/portfolio --no-silent
-          
-          # Note: Replace 'your-angular-app' with the correct directory name inside the dist folder.
+          NODE_OPTIONS: --max-old-space-size=8192 # Increase memory limit for Angular CLI if needed
+
+      - name: Archive build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: ./dist/portfolio # Replace <your-project-name> with the name of your Angular project
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: ./dist
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.TOKEN_GITHUB }}
+          publish_dir: ./dist/portfolio # Replace <your-project-name> with the name of your Angular project

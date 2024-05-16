@@ -9,8 +9,8 @@ on:
       - master
 
 jobs:
-  build:
-    name: Build
+  build-and-deploy:
+    name: Build and Deploy
     runs-on: ubuntu-latest
 
     steps:
@@ -26,32 +26,16 @@ jobs:
         run: npm install
 
       - name: Build Angular app
-        run: npm run build --configuration=production
-
-      - name: Archive build artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: dist
-          path: dist
-
-  deploy:
-    name: Deploy
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Download build artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: dist
+        run: npm run build -- --configuration=production
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: gh-pages # Deploy to gh-pages branch
+        env:
+          CI: true
+        run: |
+          # Install GitHub Pages deployer
+          npm install -g angular-cli-ghpages
+          
+          # Deploy to GitHub Pages
+          npx ngh --dir=dist/portfolio
+
+          # Note: Replace 'your-angular-app' with the correct directory name inside the dist folder.

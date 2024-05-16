@@ -1,1 +1,18 @@
-<p>skills works!</p>
+<p class=" text-4xl text-center text-white p-12 pb-0">My Skills</p>
+<div class="hidden md:block w-1/2 mx-auto bg-slate-800 p-4 rounded-lg shadow-md mt-12">
+  <mat-grid-list cols="5" rowHeight="80px">
+    <mat-grid-tile *ngFor="let image of Images" class="relative group">
+      <img [src]="image.src" alt="{{ image.alt }}" class="h-16 w-16 object-cover rounded-md transition-opacity duration-300" />
+      <div class="absolute inset-0 bg-transparent transition-opacity duration-300 opacity-0 group-hover:opacity-100"></div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<div class="md:hidden w-3/4 mx-auto bg-slate-800 p-4 rounded-lg shadow-md mt-12">
+    <mat-grid-list cols="2" rowHeight="80px">
+    <mat-grid-tile *ngFor="let image of Images" class="relative group">
+      <img [src]="image.src" alt="{{ image.alt }}" class="h-16 w-16 object-cover rounded-md transition-opacity duration-300" />
+      <div class="absolute inset-0 bg-transparent transition-opacity duration-300 opacity-0 group-hover:opacity-100"></div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

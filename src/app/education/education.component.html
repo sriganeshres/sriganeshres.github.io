@@ -1,1 +1,22 @@
-<p>education works!</p>
+<div
+  class="flex flex-col md:flex-row lg:justify-between bg-[#1571AF] w-[80%] max-h-screen top-[200px] mx-auto mt-32"
+>
+  <div class="text-3xl md:text-6xl mt-16">My Education</div>
+  <ul class="mx-auto border-t border-b border-black p-4 flex flex-col gap-4 w-[40%]">
+    <li *ngFor="let item of items" (click)="showDetails(item)" class="text-3xl">
+      <div class="flex flex-row justify-between">
+        <span>{{ item.name }}</span>
+        <span class="text-3xl"
+          ><mat-icon>{{
+            item.expanded ? "keyboard_arrow_up" : "keyboard_arrow_down"
+          }}</mat-icon></span
+        >
+      </div>
+      <div *ngIf="item.expanded" class="text-xl">
+        <p>{{ item.Institute }}</p>
+        <p>{{ item.Result }}</p>
+      </div>
+      <div *ngIf="item.id !== items.length" class="w-full h-px bg-black my-2"></div>
+    </li>
+  </ul>
+</div>

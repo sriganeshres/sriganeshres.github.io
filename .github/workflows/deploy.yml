@@ -27,7 +27,10 @@ jobs:
 
       - name: Build Angular app
         run: npm run build --configuration=production
-
+      - name: Configure Git
+        run: |
+          git config --global user.email "sriganeshthota12345@gmail.com"
+          git config --global user.name "sriganeshres"
       - name: Deploy to GitHub Pages
         env:
           CI: true

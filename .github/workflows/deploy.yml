@@ -24,7 +24,7 @@ jobs:
       run: npm install  # Install project dependencies
 
     - name: Build
-      run: ng build --prod --base-href="/sriganeshres.github.io/"  # Adjust the base href accordingly
+      run: ng build --configuration=production --base-href="/sriganeshres.github.io/"  # Adjust the base href accordingly
 
     - name: Deploy to GitHub Pages
       uses: actions/checkout@v2

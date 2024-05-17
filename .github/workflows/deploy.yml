@@ -54,5 +54,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.TOKEN_GITHUB }}
-          publish_dir: ./docs # Replace <your-project-name> with the name of your Angular project
+          publish_dir: ./browser # Replace <your-project-name> with the name of your Angular project
           publish_branch: gh-pages # The branch the action should deploy to.

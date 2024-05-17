@@ -74,11 +74,11 @@ export class SkillsComponent {
       alt: 'NodeJs',
     },
     {
-      src: '../../assets/express.png',
+      src: 'assets/express.png',
       alt: 'ExpressJs',
     },
     {
-      src: '../../assets/asp.png',
+      src: 'assets/asp.png',
       alt: 'ASPDotnet',
     },
     {

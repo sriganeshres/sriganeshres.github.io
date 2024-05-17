@@ -1,4 +1,4 @@
-name: Build & Deploy Angular App
+.name: Build & Deploy Angular App
 
 on:
   push:
@@ -28,15 +28,15 @@ jobs:
           npm ci
 
       - name: Build Angular app
-        run: ng build --configuration=production --base-href /dist/portfolio/browser/ 
+        run: ng build --output-path docs --configuration=production --base-href /sriganeshres.github.io/ 
         env:
           NODE_OPTIONS: --max-old-space-size=8192 # Increase memory limit for Angular CLI if needed
 
       - name: Archive build artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: dist
-          path: ./dist # Replace <your-project-name> with the name of your Angular project
+          name: docs
+          path: ./docs # Replace <your-project-name> with the name of your Angular project
 
   deploy:
     name: Deploy
@@ -47,12 +47,12 @@ jobs:
       - name: Download build artifacts
         uses: actions/download-artifact@v2
         with:
-          name: dist
-          path: ./dist
+          name: docs
+          path: ./docs
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.TOKEN_GITHUB }}
-          publish_dir: ./dist/portfolio # Replace <your-project-name> with the name of your Angular project
+          publish_dir: ./docs # Replace <your-project-name> with the name of your Angular project
           publish_branch: gh-pages # The branch the action should deploy to.

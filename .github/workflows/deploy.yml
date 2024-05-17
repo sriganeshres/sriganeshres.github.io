@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
   build:
@@ -33,7 +36,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: dist
-          path: ./dist/portfolio # Replace <your-project-name> with the name of your Angular project
+          path: ./dist # Replace <your-project-name> with the name of your Angular project
 
   deploy:
     name: Deploy
@@ -50,6 +53,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.TOKEN_GITHUB }}
           publish_dir: ./dist/portfolio # Replace <your-project-name> with the name of your Angular project
           publish_branch: gh-pages # The branch the action should deploy to.

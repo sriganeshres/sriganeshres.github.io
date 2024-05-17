@@ -33,7 +33,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: dist
-          path: ./dist/<your-project-name> # Replace <your-project-name> with the name of your Angular project
+          path: ./dist/portfolio # Replace <your-project-name> with the name of your Angular project
 
   deploy:
     name: Deploy
@@ -51,4 +51,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/<your-project-name> # Replace <your-project-name> with the name of your Angular project
+          publish_dir: ./dist/portfolio # Replace <your-project-name> with the name of your Angular project

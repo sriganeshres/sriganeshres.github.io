@@ -7,14 +7,32 @@ import { MatIconModule } from '@angular/material/icon';
   standalone: true,
   imports: [CommonModule, MatIconModule],
   templateUrl: './education.component.html',
-  styleUrl: './education.component.css'
+  styleUrl: './education.component.css',
 })
 export class EducationComponent {
   items = [
-    { id: 1, name: 'Undergraduate', Institute: 'Indian Institute of technology Jodhpur', Result: '8.91 CGPA(As of 3rd Semester)', expanded: false },
-    { id: 2, name: 'XII', Institute: 'Sri Chaitanya Junior College', Result: '984/1000', expanded: false },
-    { id: 3, name: 'X', Institute: 'Paramita High School', Result: '10 CGPA', expanded: false }
-  ]
+    {
+      id: 1,
+      name: 'Undergraduate',
+      Institute: 'Indian Institute of technology Jodhpur',
+      Result: '8.52 CGPA(As of 4th Semester)',
+      expanded: false,
+    },
+    {
+      id: 2,
+      name: 'XII',
+      Institute: 'Sri Chaitanya Junior College',
+      Result: '984/1000',
+      expanded: false,
+    },
+    {
+      id: 3,
+      name: 'X',
+      Institute: 'Paramita High School',
+      Result: '10 CGPA',
+      expanded: false,
+    },
+  ];
 
   showDetails(item: any): void {
     item.expanded = !item.expanded;

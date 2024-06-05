@@ -2,9 +2,7 @@
   <div
     class="hidden md:flex top-4 md:w-[95%] mx-auto items-center text-center pt-5 pb-2 px-4 h-12 mb-2 flex-row gap-8 justify-between bg-[#1571AF] text-[#ffffff]"
   >
-    <a
-      [routerLink]="['']"
-      class="text-3xl font-semibold hover:opacity-95 p-2"
+    <a [routerLink]="['']" class="text-3xl font-semibold hover:opacity-95 p-2"
       >Sri Ganesh Thota</a
     >
     <div class="flex flex-row justify-evenly gap-4">
@@ -22,11 +20,6 @@
         [routerLink]="['/projects']"
         class="text-xl hover:opacity-95 border border-transparent hover:border-white hover:border-2 p-2"
         >Projects</a
-      >
-      <a
-        [routerLink]="['/contact']"
-        class="text-xl hover:opacity-95 border border-transparent hover:border-white hover:border-2 p-2"
-        >Contact</a
       >
       <a
         href="mailto:sriganeshthota12345@gmail.com"
@@ -130,14 +123,6 @@
               class="text-xl hover:shadow-xl hover:shadow-[#000300] p-4 hover:opacity-80"
               (click)="onClickPage()"
               >Projects</a
-            >
-          </li>
-          <li>
-            <a
-              [routerLink]="['/contact']"
-              class="text-xl hover:shadow-xl hover:shadow-[#000300] p-4 hover:opacity-80"
-              (click)="onClickPage()"
-              >Contact</a
             >
           </li>
         </ul>

@@ -3,7 +3,6 @@ import { HomeComponent } from './home/home.component';
 import { EducationComponent } from './education/education.component';
 import { SkillsComponent } from './skills/skills.component';
 import { ProjectsComponent } from './projects/projects.component';
-import { ContactComponent } from './contact/contact.component';
 
 export const routes: Routes = [
     {
@@ -26,9 +25,4 @@ export const routes: Routes = [
         component: ProjectsComponent,
         title: 'Sri Ganesh\'s Projects'
     },
-    {
-        path: 'contact',
-        component: ContactComponent,
-        title: 'Sri Ganesh\'s Contact'
-    }
 ];
